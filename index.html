@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasnain Layout</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+    <style>
+        /* Custom font import */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Default light mode background */
+           
+        }
+
+        /* Dark mode styles for body */
+        html.dark body {
+            background-color: #1a202c; /* Dark background */
+            color: #e2e8f0; /* Light text color */
+        }
+
+        /* Custom toggle switch styling */
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 34px;
+            display: flex; /* Use flexbox to position icons */
+            align-items: center;
+            justify-content: space-between; /* Space out icons */
+            padding: 0 8px; /* Padding for icons inside the slider */
+            overflow: hidden; /* Hide anything outside the slider */
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 50%;
+            z-index: 2; /* Ensure thumb is always on top */
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+        /* Icon specific styles */
+        .slider .sun-icon,
+        .slider .moon-icon {
+            position: absolute; /* Absolute position within the slider */
+            top: 50%;
+            transform: translateY(-50%);
+            transition: opacity 0.3s ease-in-out;
+            z-index: 1; /* Icons behind the thumb */
+            width: 20px; /* Icon size */
+            height: 20px; /* Icon size */
+        }
+
+        .slider .sun-icon {
+            left: 8px; /* Position on the left side of the slider */
+            opacity: 1; /* Visible by default in light mode */
+            color: #fcd34d; /* Yellow color for sun */
+        }
+
+        .slider .moon-icon {
+            right: 8px; /* Position on the right side of the slider */
+            opacity: 0; /* Hidden by default in light mode */
+            color: #cbd5e0; /* Light grey for moon */
+        }
+
+        /* When the input is checked (dark mode) */
+        input:checked + .slider .sun-icon {
+            opacity: 0; /* Hide sun */
+        }
+
+        input:checked + .slider .moon-icon {
+            opacity: 1; /* Show moon */
+        }
+    </style>
+    <script>
+        // Configure Tailwind CSS to use 'class' strategy for dark mode
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {},
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <div class="main-container flex flex-col md:flex-row flex-grow w-full">
+      
+        
+
+        <!-- Aside Menu Section -->
+
+ <aside class=" aside-menu  flex-shrink-0 fixed-aside
+             dark:bg-gray-800 dark:shadow-lg transition-colors duration-300 ease-in-out">
+            <div class="flex flex-col items-center md:items-start">
+
+                <nav class="flex flex-col space-y-2 w-full p-3">
+                      <div class="flex-shrink-0">
+                        <a href="#" class="text-3xl font-extrabold text-blue-600 tracking-tight
+                                          dark:text-blue-400 transition-colors duration-300 ease-in-out">
+                            M
+                        </a>
+                    </div>
+                    <div class=" flex flex-col lg:mb-10">
+                    <a href="#" class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 font-medium transition duration-200 ease-in-out px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">  <i class="fa-solid fa-earth-europe"></i></a>
+                    
+                  
+                    <a href="#" class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 font-medium transition duration-200 ease-in-out px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">Cat</a>
+                    <a href="#" class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 font-medium transition duration-200 ease-in-out px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">Dog</a>
+
+                    <a href="#" class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 font-medium transition duration-200 ease-in-out px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">Birds</a></div>
+                </nav>
+                
+                  <div class=" flex justify-end h-screen items-center space-x-2 mb-4 pl-5 ">
+                    <svg class=" w-6 h-6 text-gray-800 dark:text-gray-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                    <h3 class="text-xl font-semibold text-gray-800
+                               dark:text-gray-200 transition-colors duration-300 ease-in-out">
+                               <!-- Menu -->
+                            </h3>
+                </div>
+            </div>
+        </aside>
+       
+
+        <!--  Headers -->
+
+        <div class="content-area flex-grow flex flex-col ">
+            
+            <!-- Header 1 (Main Header) -->
+            <header class="Main-Header bg-white  py-4 px-6 md:px-8 lg:px-12 
+                           dark:bg-gray-800 dark:shadow-lg transition-colors duration-300 ease-in-out">
+                           
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4"><div class="relative" id="search">
+                                <input id="fulls"
+                                    type="text"
+                                    placeholder="Type here to discover..."
+                                    class="w-full py-2 pl-10 pr-4 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 ease-in-out
+                                           dark:bg-gray-700 dark:border-gray-400 dark:text-gray-100 dark:placeholder-gray-400"
+                                >
+                                <!-- Search Icon (SVG) -->
+                                <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400
+                                           dark:text-gray-300" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                </svg>
+                            </div>
+                
+                 
+                    <div class="flex flex-col md:flex-row items-center gap-4 md:ml-auto w-full md:w-auto">                            
+                        <nav class="flex items-center space-x-4">
+
+                                            <!-- Explore -->
+
+             <a href="#" class="flex items-center space-x-2 text-gray-700 hover:text-blue-600 font-medium transition duration-200 ease-in-out rounded-full px-3 py-2
+                                dark:text-gray-300 dark:hover:text-blue-400">
+             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                 <circle cx="12" cy="12" r="10"></circle>
+                 <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                 </svg>
+             <span class="Explore">Explore</span>
+             </a>
+
+
+                            <!-- Dark/Light Mode Toggle with Icons -->
+                            <div class="flex items-center">
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="darkModeToggle">
+                                    <span class="slider round">
+                                        <!-- Sun Icon (Light Mode) -->
+                                        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.472 6.227a.75.75 0 0 1 1.06 0.007l1.594 1.594a.75.75 0 0 1-1.067 1.067L7.465 7.294a.75.75 0 0 1 0-1.067ZM2.25 12a.75.75 0 0 1 .75-.75h2.25a.75.75 0 0 1 0 1.5H3a.75.75 0 0 1-.75-.75ZM4.93 17.069a.75.75 0 0 1 0-1.06l1.594-1.594a.75.75 0 0 1 1.06 1.06l-1.594 1.594a.75.75 0 0 1-1.06 0ZM12 18.75a.75.75 0 0 1-.75-.75v-2.25a.75.75 0 0 1 1.5 0v2.25a.75.75 0 0 1-.75.75ZM16.53 17.069a.75.75 0 0 1-1.06 0l-1.594-1.594a.75.75 0 0 1 1.06-1.06l1.594 1.594a.75.75 0 0 1 0 1.06ZM18.75 12a.75.75 0 0 1 .75-.75h2.25a.75.75 0 0 1 0 1.5h-2.25a.75.75 0 0 1-.75-.75ZM16.53 6.227a.75.75 0 0 1 1.06 0l1.594 1.594a.75.75 0 0 1-1.067 1.067L16.523 7.294a.75.75 0 0 1 0-1.067ZM12 7.5a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9Z" />
+                                </svg>
+
+                                <!-- Moon Icon (Dark Mode) -->
+                                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 0 1 .152 1.09L7.2 6.603 9.614 9.1a.75.75 0 0 1-1.06 1.06l-2.415-2.416-2.396 2.396a.75.75 0 0 1-1.06-1.06l2.396-2.395L.808 3.26a.75.75 0 0 1 .152-1.09 9 9 0 1 1 8.568 7.352A.75.75 0 0 1 9.528 1.718Z" clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                        </label>
+                    </div>
+
+
+
+                    <!-- Join Button -->
+                    <button class=" join bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6  shadow-lg transform hover:scale-105 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50
+                                   dark:bg-blue-700 dark:hover:bg-blue-600 dark:shadow-xl">
+                        Join Now
+                    </button>
+
+
+
+                </nav>
+            </div>
+                </div>
+            </header>
+
+            <!-- Header 2 (Categories Section) -->
+
+
+            <section class="bg-white   mian-Category
+            dark:bg-gray-800 dark:shadow-lg transition-colors duration-300 ease-in-out">
+
+                <div class="Category ">
+
+                    <div class="grid   grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-10 gap-2 justify-items-top ">
+                        <!-- Category: Pets -->
+                       <a href="#"
+  class="relative flex flex-col mb-10 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 ease-in-out w-full group">
+  
+  <span class="text-sm text-gray-700 dark:text-gray-300 text-center group-hover:text-red-600">
+    Pets
+  </span>
+
+  <!-- Red line on hover -->
+  <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-red-500 transition-all duration-300 ease-in-out group-hover:w-1/2 group-hover:-translate-x-1/2"></span>
+</a>
+                        <!-- Category: Wild Animals -->
+                        <a href="#" class="flex flex-col mb-10 items-center p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 ease-in-out w-full">
+                           
+                            <span class="text-sm text-gray-700 dark:text-gray-300 text-center">Wild Animals</span>
+                        </a>
+                        <!-- Category: Birds -->
+                        <a href="#" class="flex  mb-10 flex-col items-center p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 ease-in-out w-full">
+                            
+                            <span class="text-sm text-gray-700 dark:text-gray-300 text-center">Birds</span>
+                        </a>
+                        <!-- Category: Aquatic Animals -->
+                        <a href="#" class="flex  mb-10 flex-col items-center p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 ease-in-out w-full">
+                           
+                            <span class="text-sm text-gray-700 dark:text-gray-300 text-center">Aquatic Animals</span>
+                        </a>
+                        <!-- Category: Reptiles -->
+                        <a href="#" class="flex  mb-10 flex-col items-center p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 ease-in-out w-full">
+                           
+                            <span class="text-sm text-gray-700 dark:text-gray-300 text-center">Reptiles</span>
+                        </a>
+                        <!-- Category: Farm Animals -->
+                        <a href="#" class="flex mb-10  flex-col items-center p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 ease-in-out w-full">
+                            
+                            <span class="text-sm text-gray-700 dark:text-gray-300 text-center">Farm Animals</span>
+                        </a>
+                        <!-- Category: Primates -->
+                        <a href="#" class="flex  mb-10 flex-col items-center p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 ease-in-out w-full">
+                            
+                            <span class="text-sm text-gray-700 dark:text-gray-300 text-center">Primates</span>
+                        </a>
+                        <!-- Category: Cute Cat -->
+                        <a href="#" class="flex mb-10  flex-col items-center p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 ease-in-out w-full">
+                           
+                            <span class="text-sm text-gray-700 dark:text-gray-300 text-center">Cute Cat</span>
+                        </a>
+                        <!-- Category: Insects -->
+                        <a href="#" class="flex mb-10  flex-col items-center p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 ease-in-out w-full">
+                            
+                            <span class="text-sm text-gray-700 dark:text-gray-300 text-center">Insects</span>
+                        </a>
+                        <!-- Category: Popular Animals -->
+                        <a href="#" class="flex  mb-10 flex-col items-center p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 ease-in-out w-full">
+                           
+                            <span class="text-sm text-gray-700 dark:text-gray-300 text-center">Popular Animals</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+
+           
+        <main class="flex-grow p-8 text-center bg-white shadow-md rounded-lg
+                         text-gray-800 dark:text-gray-200 dark:bg-gray-800 dark:shadow-lg transition-colors duration-300 ease-in-out">
+     <h1 class="text-4xl font-bold mb-4">Discover the Amazing World of Animals and Birds</h1>
+     <p class="text-lg">Welcome to a World where Birds paint the skie with Color and Song.</p>
+
+
+     <div class="free-images">
+        <h2>All Free Images</h2>
+
+     </div>
+     
+     
+    <!-- <div class="gallery-card">
+    <div class="images-grid">
+      <div class="big-image">
+        <img src="Images/ddfgh.jpg" alt="">
+      </div>
+      <div class="small-images">
+        <img src="Images/hk.jpg" alt="">
+        <img src="Images/men.jpg" alt="">
+      </div>
+    </div>
+    <div class="caption">
+      <h3>New Perspectives</h3>
+      <p>44 images</p>
+    </div>
+  </div> -->
+
+
+
+      <div class="gallery">
+    <img src="Images/hh.jpg" alt="">
+    <img src="Images/hh.jpg" alt="">
+    <img src="Images/ddfgh.jpg" alt="">
+    <img src="Images/hh.jpg" alt="">
+    <img src="Images/jn.jpg" alt="">
+    <img src="Images/men.jpg" alt="">
+    <img src="Images/hooo.jpg" alt="">
+    <img src="Images/hk.jpg" alt="">
+  </div>
+
+
+
+
+
+            </main>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    
+    <script>
+        // JavaScript for Dark Mode Toggle
+        document.addEventListener('DOMContentLoaded', () => {
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const htmlElement = document.documentElement; // This refers to the <html> tag
+
+            // Function to apply the theme
+            const applyTheme = (theme) => {
+                if (theme === 'dark') {
+                    htmlElement.classList.add('dark');
+                    darkModeToggle.checked = true;
+                } else {
+                    htmlElement.classList.remove('dark');
+                    darkModeToggle.checked = false;
+                }
+            };
+
+            // Check for saved theme preference in localStorage
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                applyTheme(savedTheme);
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                // If no saved theme, check system preference
+                applyTheme('dark');
+            } else {
+                // Default to light mode
+                applyTheme('light');
+            }
+
+            // Listen for toggle changes
+            darkModeToggle.addEventListener('change', () => {
+                if (darkModeToggle.checked) {
+                    applyTheme('dark');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    applyTheme('light');
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
