@@ -43,7 +43,7 @@
                     <div class=" flex flex-col lg:mb-10 gap-2">
 
                              <!-- .....................Image.................. -->
-                    <a href="#" id="imageMenu" class="  group relative flex items-center p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 ease-in-out w-full">
+                    <a href="imageMenu.html" id="imageMenu" class="  group relative flex items-center p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 ease-in-out w-full">
                     <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="#6b7280" viewBox="0 0 512 512">
                     <path d="M0 96C0 60.7 28.7 32 64 32l384 0c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 96zM323.8 202.5c-4.5-6.6-11.9-10.5-19.8-10.5s-15.4 3.9-19.8 10.5l-87 127.6L170.7 297c-4.6-5.7-11.5-9-18.7-9s-14.2 3.3-18.7 9l-64 80c-5.8 7.2-6.9 17.1-2.9 25.4s12.4 13.6 21.6 13.6l96 0 32 0 208 0c8.9 0 17.1-4.9 21.2-12.8s3.6-17.4-1.4-24.7l-120-176zM112 192a48 48 0 1 0 0-96 48 48 0 1 0 0 96z"/>
                     </svg>
@@ -56,7 +56,7 @@
                 
                              <!-- .................... Premium.................. -->
 
-                     <a href="#" class="group relative flex items-center p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 ease-in-out w-full">    
+                     <a  data-category="popular" href="#" class="group relative flex items-center p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 ease-in-out w-full">    
                      <svg class="w-6 h-6 text-yellow-500 dark:text-yellow-300" xmlns="http://www.w3.org/2000/svg" fill="#ff0000"  viewBox="0 0 640 512"><path d="M372.2 52c0 20.9-12.4 39-30.2 47.2L448 192l104.4-20.9c-5.3-7.7-8.4-17.1-8.4-27.1c0-26.5 21.5-48 48-48s48 21.5 48 48c0 26-20.6 47.1-46.4 48L481 442.3c-10.3 23-33.2 37.7-58.4 37.7l-205.2 0c-25.2 0-48-14.8-58.4-37.7L46.4 192C20.6 191.1 0 170 0 144c0-26.5 21.5-48 48-48s48 21.5 48 48c0 10.1-3.1 19.4-8.4 27.1L192 192 298.1 99.1c-17.7-8.3-30-26.3-30-47.1c0-28.7 23.3-52 52-52s52 23.3 52 52z"/></svg>
                  <span
                                  class=" pre absolute left-full top-1/2 ml-2 -translate-y-1/2 bg-yellow-500 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 group-hover:translate-x-0 translate-x-2 transition-all duration-300 whitespace-nowrap shadow-lg">
@@ -188,23 +188,22 @@
             <!-- Header 2 (Categories Section) -->
 
 
-            <section class="  mian-Category
-            ">
+<section class="  mian-Category">
 
                 <div class="Category ">
 
                     <div class=" Adjust-Category  ">
                        <a href="#" id="gallery-tab" 
-                      class=" All-Category  active-tab ">
+                      class=" All-Category  active-tab " onclick="showTab('gallery')" >
 
                <span  class="ggg pp" id="iii"  >
                                        Gallery
                       </span></a>
-                        <a href="#" class="All-Category " >
+                        <a href="#" class="All-Category " onclick="showTab('cat')" >
                     
-                            <span class="ggg">Cat</span>
+                            <span  class="ggg">Cat</span>
                         </a>
-                        <a href="#" class="All-Category Birds">
+                        <a href="#" class="All-Category Birds"  onclick="showTab('birds')" >
                             
                             <span class="ggg">Birds</span>
                         </a>
@@ -242,40 +241,209 @@
 
 
            
-       <main class="flex-grow p-8 text-center bg-white shadow-md rounded-lg
+       <main id="main-content"  class="flex-grow p-8 text-center bg-white shadow-md rounded-lg
                          text-gray-800 dark:text-gray-200 dark:bg-gray-800 dark:shadow-lg transition-colors duration-300 ease-in-out">
-     <h1 class="text-4xl font-bold mb-4">Discover the Amazing World of Animals and Birds</h1>
+
+<div id="home-content">
+
+  
+
+<div  class=" tab-content hidden " id="gallery">  </div>
+<div  id="cat" class="tab-content hidden"> </div>
+<div id="birds" class="tab-content hidden"></div>
+
+      
+      </div>
+
+ <!-- <div  id="cat" class="tab-content hidden">  
+ <h1 class="text-4xl font-bold mb-4">Discover the Amazing World of Animals and Birds</h1>
      <p class="text-lg">Welcome to a World where Birds paint the skie with Color and Song.</p>
 
 
-     <div class="free-images">
-        <h2>All Free Images</h2>
+     <div class="free-images"><h2>My Cat</h2></div>
+        
 
-     </div> 
-     
-
-
-
-
-      <div class="gallery">
-    <img src="Images/hh.jpg" alt="">
-    <img src="Images/hh.jpg" alt="">
-    <img src="Images/ddfgh.jpg" alt="">
-    <img src="Images/hh.jpg" alt="">
-    <img src="Images/jn.jpg" alt="">
-    <img src="Images/men.jpg" alt="">
-    <img src="Images/hooo.jpg" alt="">
-    <img src="Images/hk.jpg" alt="">
-  </div>
+      <div class="gallery"> 
+        <div class="image-wrapper" >
+            <img src="Images/hk.jpg" alt="Description for image 1">
+            <div class="overlay">
+            <button class="save-btn save-button " data-tooltip="Like"><svg class="mysvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg></button>
 
 
 
+            <button class="download-btn download"><svg class="my-svg" fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 242.7-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7 288 32zM64 352c-35.3 0-64 28.7-64 64l0 32c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-32c0-35.3-28.7-64-64-64l-101.5 0-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352 64 352zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg><span>Download</span></button>
+            
+            </div>
+        </div> 
+      </div>
 
+ </div>
+       -->
+
+
+
+
+
+ <!-- <div id="gallery" class="tab-content hidden">
+      <h2 class="text-xl font-bold mb-4">Cute Cats</h2>
+      <img src="Images/hh.jpg" class="w-64 rounded-md shadow"/>
+    </div> -->
+
+
+
+ <!-- <div id="cat" class="tab-content hidden">
+      <h2 class="text-xl font-bold mb-4">Cute Cats</h2>
+      <img src="https://cdn.pixabay.com/photo/2016/02/10/16/37/cat-1192026_1280.jpg" class="w-64 rounded-md shadow"/>
+    </div> -->
+    
 
             </main> 
         </div>
     </div>
 
+
+
+
+ <!-- JavaScript Section -->
+  <script>
+    // Image Gallery Data
+    const galleryData = {
+      gallery: {
+        title: "Discover the Amazing World of Animals and Birds",
+         WelcomeHome:"Welcome to a World where Birds paint the skie with Color and Song.",
+         freeImg:"All Free Images",
+        images: [
+          "Images/hk.jpg",
+          "Images/capcut.jpg",
+          "Images/hooo.jpg",
+          "Images/djalook.jpg",
+          "Images/men.jpg"
+        ]
+      },
+
+      cat: {
+        title: "Discover",
+        WelcomeHome:"hansisn.",
+        freeImg:" Cat",
+
+        images: [
+          "Images/hk.jpg",
+          "Images/capcut.jpg",
+          "Images/hooo.jpg",
+          "Images/djalook.jpg",
+          "Images/men.jpg"
+        ]
+      },
+      dog: {
+        title: "Loyal Dogs",
+        images: [
+          "https://cdn.pixabay.com/photo/2015/03/26/09/41/dog-690176_1280.jpg",
+          "https://cdn.pixabay.com/photo/2018/08/28/12/41/dog-3630724_1280.jpg"
+        ]
+      },
+      birds: {
+        title: "Beautiful Birds",
+        images: [
+          "https://cdn.pixabay.com/photo/2020/10/05/16/35/bird-5629721_1280.jpg",
+          "https://cdn.pixabay.com/photo/2014/12/16/22/25/bird-570261_1280.jpg"
+        ]
+      },
+      tiger: {
+        title: "Mighty Tigers",
+        images: [
+          "https://cdn.pixabay.com/photo/2017/01/20/00/30/tiger-1999020_1280.jpg"
+        ]
+      }
+    };
+
+    
+    // Render all galleries with custom HTML
+function renderGalleryContent() {
+  for (const [key, value] of Object.entries(galleryData)) {
+    const container = document.getElementById(key);
+    if (container) {
+      let html = ` 
+        <h1 class="text-4xl font-bold mb-4">${value.title}</h1>
+        <p class="text-lg">${value.WelcomeHome}</p>
+        <div class="free-images"><h2>${value.freeImg}</h2></div>
+        <div class="gallery">    
+            `;
+
+      value.images.forEach(img => {
+        html += `
+          <div class="image-wrapper">
+            <img src="${img}" alt="Animal Image "/>
+            <div class="overlay">
+                
+              <button class="save-btn save-button " data-tooltip="Like">
+<svg class="mysvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg></button>
+
+<button class="download-btn download"> 
+    <svg class="my-svg" fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 242.7-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7 288 32zM64 352c-35.3 0-64 28.7-64 64l0 32c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-32c0-35.3-28.7-64-64-64l-101.5 0-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352 64 352zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/><span>Download</span></svg>
+    
+    </button>   
+            </div>
+          </div>`;
+      });
+
+      html += `</div>`;
+      container.innerHTML = html;
+    }
+  }
+}
+
+
+
+
+    // Tab switch
+    function showTab(tabId) {
+      window.location.hash = tabId;
+
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
+      document.querySelectorAll('.tab-link').forEach(b => b.classList.remove('border-b-2', 'border-black', 'pb-1', 'active'));
+
+      const section = document.getElementById(tabId);
+      if (section) section.classList.remove('hidden');
+
+      const btn = [...document.querySelectorAll('.tab-link')].find(b => b.textContent.toLowerCase() === tabId);
+      if (btn) btn.classList.add('border-b-2', 'border-black', 'pb-1', 'active');
+    }
+
+    // Load correct tab on page load
+    document.addEventListener("DOMContentLoaded", () => {
+      renderGalleryContent();
+
+      const hash = window.location.hash.replace('#', '');
+      const validTabs = ['gallery', 'cat', 'dog', 'birds', 'tiger'];
+      if (validTabs.includes(hash)) {
+        showTab(hash);
+      } else {
+        showTab('gallery');
+      }
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
 <script>
   const tabs = document.querySelectorAll('.All-Category');
@@ -302,6 +470,33 @@
     });
  });
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -352,7 +547,13 @@
     myGallery.classList.add()
 
 </script>
-
+<script>
+  fetch("header.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("header").innerHTML = data;
+    });
+</script>
 
 </body>
 </html>
