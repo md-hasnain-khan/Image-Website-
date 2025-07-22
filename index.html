@@ -245,32 +245,70 @@
             <!-- ............Image Download Pop Up............. -->
 
 
-<div id="downloadModal" class="modal" style="display:none;">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
+<div id="downloadModal" class="modal" >
+    <span class="close modal-close-btn" onclick="closeModal()">&times;</span>
+  <div class="modal-content" >
+  
 
-    <div class="modal-body">
-      <img id="modalImage" src="" alt="Image Preview" style="max-width:300px; border-radius:8px;" />
-      <div class="modal-desc" style="margin-left:20px;">
-        <p id="modalDesc">Image description will appear here</p>
-        
-        <!-- Like button inside modal -->
-        <button id="modalLikeBtn" class="like-btn" data-liked="false" onclick="toggleLike(this)">
-          <svg class="svg-like" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24" fill="red">
-            <path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/>
-          </svg>
-          <span id="modalLikeCount">0</span> Likes
+
+
+    <div class="modal-main">
+
+      <div class="bio-sec">
+        <button class="share-btn" onclick="shareImage()">
+
+          <svg xmlns="http://www.w3.org/2000/svg" 
+     width="24" height="24" viewBox="0 0 24 24" 
+     fill="none" stroke="currentColor" stroke-width="2" 
+     stroke-linecap="round" stroke-linejoin="round" 
+     class="feather feather-share">
+  <path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7" />
+  <polyline points="16 6 12 2 8 6" />
+  <line x1="12" y1="2" x2="12" y2="15" />
+</svg>
+
+<span>Share</span>
+
         </button>
-        
-        <br/>
 
-        <a id="modalDownloadLink" href="#" download class="download-button" style="display:inline-block; margin-top:15px; padding:10px 20px; background:#007BFF; color:#fff; border-radius:6px; text-decoration:none;">
-          Download Now
-        </a>
+
+      <button id="modalLikeBtn" class="like-btn like-me" data-liked="false" onclick="toggleLike(this)" >
+        <svg class="svg-like" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24" fill="red" style="vertical-align: middle;">
+          <path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/>
+        </svg>
+        <span id="modalLikeCount" style="vertical-align: middle;">0</span> 
+      </button>
+
+      <a id="modalDownloadLink" href="#" download class="download-button " >
+        Free Download 
+      </a>
+      </div>
+
+  
+<div class="Image-Preview" > 
+       <img id="modalImage" src="" alt="Image Preview" class=".imgPreview"/>
+</div>
+<p id="modalDesc" style="margin-top:10px;">Image description will appear here</p>
+    
+
+    </div>
+
+
+
+
+
+    
+
+    <!-- More Like This Section -->
+      <div class="more-like-this" style="flex:1; min-width:300px;">
+      <h3 style="margin-bottom: 10px;">More Like This</h3>
+      <div id="moreLikeContainer" style="display:flex; gap:10px; flex-wrap: wrap; max-height:60vh; overflow-y:auto;">
       </div>
     </div>
   </div>
+
 </div>
+
 
 
 
@@ -650,5 +688,8 @@ tabs.forEach(t => t.classList.remove('active-tab'));
 <script src="images-data-structure.js"></script>
 <script src="components/like-btn.js" defer ></script>
 <script src="components/img-download.js" defer ></script>
+<script src="components/More-like.js" defer ></script>
+<script src="components/Share.js"></script>
+
 </body>
 </html>
