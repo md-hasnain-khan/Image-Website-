@@ -84,35 +84,31 @@
 position: relative;
   
 } 
-
-.ggg{
-  font-size: 14px;
-  font-weight: 600;
-    color:grey;
-
-}
-
-.ggg.pp {
-  color: black;
-   
-}
-
-
-
 .All-Category   span:hover{
 
     color:black;
 
 }
-
-
-
-
-
-
 .All-Category.active-tab {
-  border-bottom-color:  black;
+  border-bottom-color:  rgb(255, 0, 0);
+
+}
+
+
+.gal{
+  font-size: 14px;
+  font-weight: 600;
+    color:rgb(0, 0, 0);
+
+}
+
+.gal .galx {
+  color: black;
    
+}
+
+.gal span:hover{
+      color:black;
 
 }
 
@@ -206,7 +202,7 @@ margin-left: 80px;
   background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
 }
 
-.my-cat{
+.my-birds, .my-cat{
      column-count: 3;
     column-gap: 15px;
     width: 90%;
@@ -280,17 +276,27 @@ font-weight: 600;
   justify-content: center;
   align-items: center;
 
+
 }
 
-.save-button{
+.like-button{
+ font-weight: 600;
   display: flex;
-  width: 40px;
-  height: 35px;
+  gap: 5px;
+}
+
+.like-button span{
+   display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+
 }
 
 
 
-.download-btn, .save-btn {
+.download-btn, .like-btn {
     background-color:white;
     color: rgb(0, 0, 0);
     border: 1px solid rgba(255, 255, 255, 0.5); 
@@ -302,13 +308,16 @@ font-weight: 600;
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
+
+
+
 html {
   scroll-behavior: smooth;
 }
 
 
 
-.Cat-desc{
+.birds-desc, .Cat-desc, .dog-desc{
    display: flex;
    gap: 20px;
     width: 90%;
@@ -316,7 +325,7 @@ html {
     margin-right: 30px;
     margin-bottom: 20px;
 }
-.Cat-desc .Cat-Tittle{
+.birds-desc, .birds-Tittle, .Cat-desc .Cat-Tittle, .dog-desc{
   height: 40vh;
   text-align: left;
 }
@@ -333,14 +342,14 @@ flex: 1;
 }
 
 
-.Cat-Tittle h1{
+.birds-Tittle h1, .Cat-Tittle h1, .dog-Tittle h1{
   font-size: 48px;
   font-weight: 600;
   margin-top: 40px;
 }
 
 
-.Cat-Tittle p{
+.birds-Tittle p, .Cat-Tittle p, .dog-Tittle p{
  color: rgb(17, 17, 17);
  font-weight: 400;
  font-size: 18px;
@@ -348,10 +357,41 @@ flex: 1;
  font-family: ui-sans-serif, system-ui, sans-serif;
    margin-top: 10px;
 
-
 }
 
 
 
 
 
+ .modal {
+  position: fixed;
+  height: auto;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  height: auto;
+  display: flex;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  cursor: pointer;
+  font-weight: bold;
+}
